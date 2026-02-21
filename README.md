@@ -30,7 +30,7 @@ A complete Inventory Management System for restaurants that manages categories, 
 
 
 # 1. Clone / copy the project
-git clone <your-repo-url> restaurant-ims
+git clone https://github.com/Lucif-web/Restaurant-IMS.git restaurant-ims
 cd restaurant-ims
 
 # 2. Install PHP dependencies
