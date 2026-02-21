@@ -30,15 +30,15 @@
                     <tr>
                         <td class="fw-semibold">{{ $item->menuItem->name }}</td>
                         <td class="text-center">{{ $item->quantity }}</td>
-                        <td>${{ number_format($item->price, 2) }}</td>
-                        <td>${{ number_format($item->price * $item->quantity, 2) }}</td>
+                        <td>Rs {{ number_format($item->price, 2) }}</td>
+                        <td>Rs {{ number_format($item->price * $item->quantity, 2) }}</td>
                     </tr>
                 @endforeach
                 </tbody>
                 <tfoot class="table-light">
                     <tr>
                         <th colspan="3" class="text-end">Total</th>
-                        <th>${{ number_format($order->total_amount, 2) }}</th>
+                        <th>Rs {{ number_format($order->total_amount, 2) }}</th>
                     </tr>
                 </tfoot>
             </table>

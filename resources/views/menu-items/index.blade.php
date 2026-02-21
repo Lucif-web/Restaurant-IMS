@@ -41,7 +41,7 @@
                         </div>
                     </td>
                     <td><span class="badge bg-secondary bg-opacity-75">{{ $item->category->name }}</span></td>
-                    <td class="fw-semibold">${{ number_format($item->price, 2) }}</td>
+                    <td class="fw-semibold">Rs {{ number_format($item->price, 2) }}</td>
                     <td>
                         <a href="{{ route('recipes.index', $item) }}" class="btn btn-sm btn-outline-info">
                             <i class="bi bi-journal-code me-1"></i>Recipe

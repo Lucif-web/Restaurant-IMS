@@ -42,7 +42,7 @@
                 <div class="rounded-3 p-3 bg-danger bg-opacity-10 text-danger fs-3"><i class="bi bi-currency-dollar"></i></div>
                 <div>
                     <div class="text-muted small">Revenue Today</div>
-                    <div class="fw-bold fs-4">${{ number_format($stats['revenue_today'], 2) }}</div>
+                    <div class="fw-bold fs-4">RS {{ number_format($stats['revenue_today'], 2) }}</div>
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@
                         <tr class="align-middle">
                             <td><a href="{{ route('orders.show', $order) }}" class="fw-semibold text-decoration-none">{{ $order->order_number }}</a></td>
                             <td>{{ $order->orderItems->count() }} item(s)</td>
-                            <td>${{ number_format($order->total_amount, 2) }}</td>
+                            <td>Rs {{ number_format($order->total_amount, 2) }}</td>
                             <td>
                                 @php
                                     $badge = match($order->status) {

@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('ingredient_id')->constrained()->onDelete('restrict');
             $table->foreignId('order_id')->nullable()->constrained()->onDelete('set null');
             $table->enum('type', ['deduction', 'manual_add', 'adjustment']);
-            $table->decimal('quantity', 10, 3); // Positive = added, Negative = deducted
+            $table->decimal('quantity', 10, 3);
             $table->decimal('stock_before', 10, 3);
             $table->decimal('stock_after', 10, 3);
             $table->string('notes')->nullable();

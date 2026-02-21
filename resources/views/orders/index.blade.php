@@ -40,7 +40,7 @@
                         </a>
                     </td>
                     <td>{{ $order->orderItems->count() }} item(s)</td>
-                    <td class="fw-semibold">${{ number_format($order->total_amount, 2) }}</td>
+                    <td class="fw-semibold">Rs {{ number_format($order->total_amount, 2) }}</td>
                     <td><span class="badge bg-{{ $badge }}">{{ ucfirst($order->status) }}</span></td>
                     <td class="text-muted small">{{ $order->created_at->format('d M Y, H:i') }}</td>
                     <td>

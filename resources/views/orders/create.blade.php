@@ -25,7 +25,7 @@
                             <option value="">— Select Menu Item —</option>
                             @foreach($menuItems as $item)
                                 <option value="{{ $item->id }}" data-price="{{ $item->price }}">
-                                    {{ $item->name }} ({{ $item->category->name }}) — ${{ number_format($item->price, 2) }}
+                                    {{ $item->name }} ({{ $item->category->name }}) — Rs {{ number_format($item->price, 2) }}
                                 </option>
                             @endforeach
                         </select>
@@ -35,7 +35,7 @@
                                value="1" min="1" required>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control item-subtotal bg-light" readonly placeholder="$0.00">
+                        <input type="text" class="form-control item-subtotal bg-light" readonly placeholder="Rs 0.00">
                     </div>
                     <div class="col-1">
                         <button type="button" class="btn btn-outline-danger remove-row w-100" disabled>
@@ -51,7 +51,7 @@
 
             <div class="d-flex justify-content-end mt-3 gap-2 align-items-center">
                 <span class="text-muted me-2">Total:</span>
-                <span class="fs-5 fw-bold text-success" id="grandTotal">$0.00</span>
+                <span class="fs-5 fw-bold text-success" id="grandTotal">Rs 0.00</span>
             </div>
 
             <hr>

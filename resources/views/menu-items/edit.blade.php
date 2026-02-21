@@ -17,7 +17,7 @@
                     @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
                 <div class="col-md-4">
-                    <label class="form-label fw-semibold">Price ($) <span class="text-danger">*</span></label>
+                    <label class="form-label fw-semibold">Price (Rs) <span class="text-danger">*</span></label>
                     <input type="number" name="price" step="0.01" min="0"
                            class="form-control @error('price') is-invalid @enderror"
                            value="{{ old('price', $menuItem->price) }}" required>
