@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $cocoa   = Ingredient::create(['name' => 'Cocoa Powder', 'unit' => 'gram',  'current_stock' => 1000,  'minimum_stock' => 100]);
         $sugar   = Ingredient::create(['name' => 'Sugar',        'unit' => 'gram',  'current_stock' => 5000,  'minimum_stock' => 500]);
 
-     
+
         $burger = MenuItem::create([
             'category_id' => $mainCourse->id,
             'name'        => 'Classic Burger',
@@ -82,7 +82,5 @@ class DatabaseSeeder extends Seeder
         Recipe::create(['menu_item_id' => $chocolate->id, 'ingredient_id' => $cream->id,  'quantity_required' => 100]);
         Recipe::create(['menu_item_id' => $chocolate->id, 'ingredient_id' => $sugar->id,  'quantity_required' => 50]);
 
-        $this->command->info('✅ Sample data seeded successfully!');
-        $this->command->info('   3 categories, 5 menu items, 10 ingredients, recipes configured.');
     }
 }

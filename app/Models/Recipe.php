@@ -20,17 +20,11 @@ class Recipe extends Model
         'quantity_required' => 'decimal:3',
     ];
 
-    /**
-     * A recipe belongs to a menu item.
-     */
     public function menuItem(): BelongsTo
     {
         return $this->belongsTo(MenuItem::class);
     }
 
-    /**
-     * A recipe belongs to an ingredient.
-     */
     public function ingredient(): BelongsTo
     {
         return $this->belongsTo(Ingredient::class);

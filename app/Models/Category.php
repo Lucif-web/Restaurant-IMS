@@ -12,9 +12,6 @@ class Category extends Model
 
     protected $fillable = ['name', 'description'];
 
-    /**
-     * A category has many menu items.
-     */
     public function menuItems(): HasMany
     {
         return $this->hasMany(MenuItem::class);

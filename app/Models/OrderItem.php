@@ -22,25 +22,16 @@ class OrderItem extends Model
         'quantity' => 'integer',
     ];
 
-    /**
-     * An order item belongs to an order.
-     */
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
 
-    /**
-     * An order item belongs to a menu item.
-     */
     public function menuItem(): BelongsTo
     {
         return $this->belongsTo(MenuItem::class);
     }
 
-    /**
-     * Get the subtotal for this order item.
-     */
     public function getSubtotalAttribute(): float
     {
         return $this->price * $this->quantity;

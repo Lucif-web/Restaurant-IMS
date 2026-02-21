@@ -10,7 +10,6 @@
         <form action="{{ route('orders.store') }}" method="POST" id="orderForm">
             @csrf
 
-            {{-- Order Notes --}}
             <div class="mb-4">
                 <label class="form-label fw-semibold">Notes (optional)</label>
                 <input type="text" name="notes" class="form-control" placeholder="Table number, special requests..." value="{{ old('notes') }}">
@@ -19,7 +18,6 @@
             <hr>
             <h6 class="fw-bold mb-3">Order Items</h6>
 
-            {{-- Item rows --}}
             <div id="orderItems">
                 <div class="row g-2 mb-2 order-item-row">
                     <div class="col-7">

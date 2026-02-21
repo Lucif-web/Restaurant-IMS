@@ -18,7 +18,6 @@
 </div>
 
 <div class="row g-3">
-    {{-- Order Items --}}
     <div class="col-lg-7">
         <div class="card border-0 shadow-sm">
             <div class="card-header bg-white fw-semibold"><i class="bi bi-list me-2"></i>Order Items</div>
@@ -45,7 +44,6 @@
             </table>
         </div>
 
-        {{-- Stock Deductions (if delivered) --}}
         @if($order->stockMovements->isNotEmpty())
         <div class="card border-0 shadow-sm mt-3">
             <div class="card-header bg-white fw-semibold"><i class="bi bi-arrow-down-circle me-2 text-danger"></i>Stock Deducted</div>
@@ -65,7 +63,6 @@
         @endif
     </div>
 
-    {{-- Status & Actions --}}
     <div class="col-lg-5">
         <div class="card border-0 shadow-sm">
             <div class="card-header bg-white fw-semibold"><i class="bi bi-gear me-2"></i>Order Actions</div>
@@ -107,7 +104,6 @@
                     @endif
                 </div>
 
-                {{-- Stock preview --}}
                 <div class="mt-3 p-3 bg-light rounded">
                     <p class="small fw-semibold mb-2"><i class="bi bi-info-circle me-1"></i>Stock Impact (on delivery):</p>
                     @foreach($order->orderItems as $oi)

@@ -71,7 +71,6 @@
 </head>
 <body>
 
-<!-- Sidebar -->
 <nav class="sidebar">
     <div class="brand">🍽️ <span>Restaurant</span>IMS</div>
     <ul class="nav flex-column pt-2">
@@ -102,9 +101,7 @@
     </ul>
 </nav>
 
-<!-- Main Content -->
 <div class="main-content">
-    <!-- Top Bar -->
     <div class="topbar d-flex justify-content-between align-items-center">
         <h6 class="mb-0 fw-semibold text-muted">@yield('title', 'Dashboard')</h6>
         <div class="d-flex align-items-center gap-3">
@@ -121,7 +118,6 @@
     </div>
 
     <div class="page-body">
-        {{-- Alerts --}}
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <i class="bi bi-check-circle me-2"></i>{{ session('success') }}

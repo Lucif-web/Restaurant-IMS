@@ -2,7 +2,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-{{-- Stats Row --}}
 <div class="row g-3 mb-4">
     <div class="col-sm-6 col-xl-3">
         <div class="card border-0 shadow-sm h-100">
@@ -51,7 +50,6 @@
 </div>
 
 <div class="row g-3">
-    {{-- Low Stock Alert --}}
     @if($lowStockIngredients->isNotEmpty())
     <div class="col-12">
         <div class="card border-0 shadow-sm border-start border-danger border-4">
@@ -83,7 +81,6 @@
     </div>
     @endif
 
-    {{-- Recent Orders --}}
     <div class="col-lg-7">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-header bg-white fw-semibold d-flex justify-content-between">
@@ -121,7 +118,6 @@
         </div>
     </div>
 
-    {{-- Recent Stock Activity --}}
     <div class="col-lg-5">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-header bg-white fw-semibold d-flex justify-content-between">

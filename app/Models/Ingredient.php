@@ -23,9 +23,6 @@ class Ingredient extends Model
         'minimum_stock' => 'decimal:3',
     ];
 
-    /**
-     * An ingredient belongs to many menu items through recipes.
-     */
     public function menuItems(): BelongsToMany
     {
         return $this->belongsToMany(MenuItem::class, 'recipes')
@@ -33,25 +30,16 @@ class Ingredient extends Model
                     ->withTimestamps();
     }
 
-    /**
-     * An ingredient has many stock movement logs.
-     */
     public function stockMovements(): HasMany
     {
         return $this->hasMany(StockMovement::class);
     }
 
-    /**
-     * Check if current stock is below the minimum threshold.
-     */
     public function isLowStock(): bool
     {
         return $this->current_stock <= $this->minimum_stock;
     }
 
-    /**
-     * Check if sufficient stock exists for a given quantity.
-     */
     public function hasSufficientStock(float $required): bool
     {
         return $this->current_stock >= $required;

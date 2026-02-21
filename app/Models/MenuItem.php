@@ -26,17 +26,11 @@ class MenuItem extends Model
         'is_available' => 'boolean',
     ];
 
-    /**
-     * A menu item belongs to a category.
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * A menu item has many ingredients through the recipes table.
-     */
     public function ingredients(): BelongsToMany
     {
         return $this->belongsToMany(Ingredient::class, 'recipes')
@@ -44,25 +38,16 @@ class MenuItem extends Model
                     ->withTimestamps();
     }
 
-    /**
-     * A menu item has many recipes.
-     */
     public function recipes(): HasMany
     {
         return $this->hasMany(Recipe::class);
     }
 
-    /**
-     * A menu item has many order items.
-     */
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItem::class);
     }
 
-    /**
-     * Check if this menu item can be prepared with current stock.
-     */
     public function canPrepare(int $quantity = 1): bool
     {
         foreach ($this->recipes as $recipe) {
@@ -74,9 +59,6 @@ class MenuItem extends Model
         return true;
     }
 
-    /**
-     * Get the image URL or a placeholder.
-     */
     public function getImageUrlAttribute(): string
     {
         return $this->image

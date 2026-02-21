@@ -26,17 +26,11 @@ class StockMovement extends Model
         'stock_after' => 'decimal:3',
     ];
 
-    /**
-     * A stock movement belongs to an ingredient.
-     */
     public function ingredient(): BelongsTo
     {
         return $this->belongsTo(Ingredient::class);
     }
 
-    /**
-     * A stock movement optionally belongs to an order.
-     */
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);

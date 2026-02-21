@@ -13,17 +13,14 @@ class StockMovementController extends Controller
     {
         $query = StockMovement::with('ingredient', 'order')->latest();
 
-        // Filter by ingredient
         if ($request->ingredient_id) {
             $query->where('ingredient_id', $request->ingredient_id);
         }
 
-        // Filter by type
         if ($request->type) {
             $query->where('type', $request->type);
         }
 
-        // Filter by date
         if ($request->date_from) {
             $query->whereDate('created_at', '>=', $request->date_from);
         }

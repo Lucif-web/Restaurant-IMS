@@ -32,10 +32,6 @@ class OrderController extends Controller
         return view('orders.create', compact('menuItems'));
     }
 
-    /**
-     * Create a new order.
-     * Validates stock before saving.
-     */
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -71,7 +67,6 @@ class OrderController extends Controller
 
                 $order->update(['total_amount' => $total]);
 
-                // Validate stock availability at order time (for early warning)
                 $errors = $this->inventoryService->validateStockForOrder($order);
                 if (!empty($errors)) {
                     throw new Exception("Stock validation failed:\n" . implode("\n", $errors));
@@ -94,10 +89,6 @@ class OrderController extends Controller
         return view('orders.show', compact('order'));
     }
 
-    /**
-     * Update the order status.
-     * When status becomes "delivered", deduct stock automatically.
-     */
     public function updateStatus(Request $request, Order $order): RedirectResponse
     {
         $validated = $request->validate([
@@ -105,8 +96,6 @@ class OrderController extends Controller
         ]);
 
         $newStatus = $validated['status'];
-
-        // Prevent re-delivering or modifying already delivered/cancelled orders
         if (in_array($order->status, ['delivered', 'cancelled'])) {
             return back()->with('error', 'Cannot modify a delivered or cancelled order.');
         }
@@ -115,7 +104,6 @@ class OrderController extends Controller
             DB::transaction(function () use ($order, $newStatus) {
 
                 if ($newStatus === 'delivered') {
-                    // This is the critical step - deduct stock with transaction safety
                     $this->inventoryService->deductStockForOrder($order);
 
                     $order->update([

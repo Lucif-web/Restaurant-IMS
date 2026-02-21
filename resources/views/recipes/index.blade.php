@@ -9,7 +9,6 @@
 </div>
 
 <div class="row g-3">
-    {{-- Add Ingredient to Recipe --}}
     <div class="col-lg-4">
         <div class="card border-0 shadow-sm">
             <div class="card-header bg-white fw-semibold"><i class="bi bi-plus-circle me-2"></i>Add Ingredient</div>
@@ -43,7 +42,6 @@
         </div>
     </div>
 
-    {{-- Current Recipe --}}
     <div class="col-lg-8">
         <div class="card border-0 shadow-sm">
             <div class="card-header bg-white fw-semibold">
@@ -67,7 +65,6 @@
                             <td class="fw-semibold">{{ $recipe->ingredient->name }}</td>
                             <td class="text-muted">{{ $recipe->ingredient->unit }}</td>
                             <td>
-                                {{-- Inline edit form --}}
                                 <form action="{{ route('recipes.update', [$menuItem, $recipe]) }}" method="POST" class="d-flex gap-1">
                                     @csrf @method('PUT')
                                     <input type="number" name="quantity_required" step="0.001" min="0.001"

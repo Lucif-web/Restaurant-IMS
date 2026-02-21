@@ -6,7 +6,6 @@
     <h5 class="mb-0 fw-bold"><i class="bi bi-journal-text me-2"></i>Stock Movement Logs</h5>
 </div>
 
-{{-- Filters --}}
 <div class="card border-0 shadow-sm mb-3">
     <div class="card-body py-2">
         <form method="GET" class="row g-2 align-items-end">
